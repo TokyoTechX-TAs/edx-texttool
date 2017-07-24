@@ -5,7 +5,7 @@ A new open edX Content Modification Tool for text replacement, which is develope
 <b> Python package dependenies</b>
 - lxml, xlrd, xlwt, beautifulsoup4
 
-<b><font size="5"> Workspace folder  </font></b>
+<b> Workspace folder </b>
 - 2 python scripts 
 <br>course_struc_extract.py --> this script generates an excel file ‘conversion table’ 
 <br>text_replacement.py --> this script replaces target text components to exported course  
