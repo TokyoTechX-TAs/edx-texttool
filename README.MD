@@ -1,5 +1,5 @@
 
-# Open edX Course Content Modification Tool for English-to-Japanese Text Replacement 
+# Open edX Course Content Modification Tool for Text Replacement 
 This tool was developed by a teaching assistant in the Tokyo Tech Online Education Development Office to replace text from a source language to a translated foreign language. We have tested this tool by replacing English text with Japanese text in html format.  This tool works offline utilizing an exported course and then you need to enter data required regarding the course in the Excel sheet before executing the python script.  
 
 <b> Python package dependenies</b>
