@@ -1,5 +1,5 @@
 
-<b> Text Modification Tool for edX Online course</b><br>
+# Text Modification Tool for edX Online course
 A new open edX Content Modification Tool for text replacement, which is developed to automatically replace English text with translated text of Online edX course. Tool extracts course structure from exported edX course and to excel file. Then the English text is replaced by translated text which is noted in the excel file by the user. 
 
 <b> Python package dependenies</b>
