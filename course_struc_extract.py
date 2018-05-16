@@ -72,6 +72,13 @@ def read_course():
 	sheet.write(row_title_idx,HTMLFILE, 		"file_name")
 	read_chapter()
 
+def order_chapter():
+	course_folder_path = "course/course/course.xml"
+	tree = etree.parse(course_folder_path)
+	root = tree.getroot()
+	chap_ls = root.findall(".chapter")
+	return chap_ls
+
 def read_chapter():
 	"""
 		extract section name from exported course (subfolder -> chapter)
@@ -79,11 +86,12 @@ def read_chapter():
 		- chapter_name -> section name
 		- seq_ls -> object of associated subsection's XML filenames
 	"""
-
+	sorted_chapter = order_chapter()
 	chap_path = "course/chapter"
 	chap_ls = os.listdir(chap_path)
-	for each_chap in chap_ls:
-		tree = etree.parse(chap_path+"/"+each_chap)
+	for each_chap in sorted_chapter:
+		chapter_filename = each_chap.get('url_name') + ".xml"
+		tree = etree.parse(chap_path+"/"+chapter_filename)
 		root = tree.getroot()
 		chapter_name = root.get('display_name')
 		seq_ls = root.findall(".sequential")

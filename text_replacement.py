@@ -281,15 +281,15 @@ def modify_figure_src(_des_path,_filename,_row):
 
 	backup_path = path +"/html"
 	backup_file = backup_souce_path+"/"+backup_path+"/"+_filename + ".html"
+	print(backup_file)
 
-
-	file_eng = open(backup_file, 'r') 
+	file_eng = open(backup_file, 'r',encoding="utf-8") 
 	eng_text = file_eng.read() 
 	tag_eng = BeautifulSoup(eng_text, 'html.parser')
 	img_tag_eng = tag_eng.find_all('img')
 	file_eng.close()
 
-	file_translated = open(_des_path, 'r') 
+	file_translated = open(_des_path, 'r',encoding="utf-8") 
 	translated_text = file_translated.read() 
 	tag_translated = BeautifulSoup(translated_text, 'html.parser')
 	img_tag_translated = tag_translated.find_all('img')
@@ -302,14 +302,14 @@ def modify_figure_src(_des_path,_filename,_row):
 			for i in range(len(img_tag_translated)):
 				img_tag_translated[i].attrs['src'] =img_tag_eng[i].attrs['src']
 			translated_text = tag_translated.prettify()
-			file_translated_mod = open(_des_path, 'w') 
+			file_translated_mod = open(_des_path, 'w',encoding="utf-8") 
 			file_translated_mod.write(translated_text) 
 			file_translated_mod.close()
 			print("figure sources are all modified")
 
 		else:
 			print("number of figure is not equal to the source")
-			file_err = open('error_files.txt', 'a') 
+			file_err = open('error_files.txt', 'a',encoding="utf-8") 
 			txt = "row in excel = " + str(sheetstruc.cell_value(_row,HTMLINDEX)) +"\n"
 			txt = txt + "--> fig in translated text = "+  str(len(img_tag_translated)) + " ,fig in original text = "  +str(len(img_tag_eng))  +"\n"
 			txt = txt + "----------------------------------------------\n"
